@@ -5,7 +5,7 @@ import java.awt.*;
 public class GameGUI extends JFrame {
     public GameGUI() {
         // inherit the title field.
-        super("Tic-Tac-Toa Game");
+        super("X/O Game");
         // set the size of the window when calling the constructor
         this.setSize(495, 650);
         // make the window non-resizable when calling the constructor
@@ -25,11 +25,13 @@ public class GameGUI extends JFrame {
     private void addComponents() {
         this.addLabel();
         this.addBoard();
+        this.addHint("X's turn");
+        this.addResetBtn();
     }
 
     private void addLabel() {
         // Create a JLabel component to display the "Tic-Tac-Toa" title on the window
-        JLabel title = new JLabel("Tic-Tac-Toa");
+        JLabel title = new JLabel("X/O");
         // set the font of the title label to make it bold and readable with a larger size
         title.setFont(new Font("Dialog", Font.BOLD, 30));
         // Align the label text horizontally to the center within its container
@@ -73,5 +75,22 @@ public class GameGUI extends JFrame {
             i++;
             j++;
         }
+    }
+
+    private void addHint(String hint) {
+        JLabel hintMessage = new JLabel(hint);
+        hintMessage.setFont(new Font("Dialog", Font.BOLD, 30));
+        hintMessage.setHorizontalAlignment(SwingConstants.CENTER);
+        hintMessage.setBounds(0, 495, 495, 39);
+        this.add(hintMessage);
+    }
+
+    private void addResetBtn() {
+        JButton resetButton = new JButton("Reset Game");
+        resetButton.setFont(new Font("Dialog", Font.BOLD, 18));
+        resetButton.setContentAreaFilled(false);
+        resetButton.setBounds(167, 545, 160, 42);
+        resetButton.setFocusPainted(false);
+        this.add(resetButton);
     }
 }
