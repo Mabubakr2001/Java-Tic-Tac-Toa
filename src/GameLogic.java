@@ -5,13 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-public abstract class GameLogic {
+// make this class final. It won't be subclassed (no other class can extend it) cuz we want it to be a utility class.
+public final class GameLogic {
     private static final List<JButton> cells = new ArrayList<>();
     private static final GamePlayer playerX = new GamePlayer(PlayerSign.X.getSign());
     private static final GamePlayer playerO = new GamePlayer(PlayerSign.O.getSign());
     /* use a final container (box) and store the mutable current player inside it, to give it to lambda.
     Because lambda expects a final attribute (variable) or an effectively final attribute (variable) */
     private static final AtomicReference<GamePlayer> currentPlayerContainer = new AtomicReference<>(playerX);
+    // Prevent anyone from instantiating this class
+    private GameLogic() {}
     public static void start() {
         listenToClicks();
     }
