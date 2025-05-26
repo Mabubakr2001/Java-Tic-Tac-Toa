@@ -1,7 +1,5 @@
 package src;
 
-import java.util.concurrent.atomic.AtomicReference;
-
 public class App {
     public static void main(String[] args) {
         GameGUI XO_GUI = new GameGUI();
