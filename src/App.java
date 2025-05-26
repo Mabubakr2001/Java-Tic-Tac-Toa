@@ -1,10 +1,13 @@
 package src;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 public class App {
     public static void main(String[] args) {
-        // instantiate an object from the GameGUI class
-        GameGUI Tic_Tac_ToaGUI = new GameGUI();
+        GameGUI XO_GUI = new GameGUI();
         // show the GUI to the user by making the window visible
-        Tic_Tac_ToaGUI.setVisible(true);
+        XO_GUI.setVisible(true);
+        // Start the game logic to make the game interactive
+        GameLogic.start();
     }
 }

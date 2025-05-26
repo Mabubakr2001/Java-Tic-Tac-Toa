@@ -21,17 +21,15 @@ public class GameGUI extends JFrame {
         // add the components to the GUI window
         this.addComponents();
     }
-
     private void addComponents() {
         this.addLabel();
         this.addBoard();
         this.addHint("X's turn");
         this.addResetBtn();
     }
-
     private void addLabel() {
         // Create a JLabel component to display the "Tic-Tac-Toa" title on the window
-        JLabel title = new JLabel("X/O");
+        JLabel title = new JLabel("X / O");
         // set the font of the title label to make it bold and readable with a larger size
         title.setFont(new Font("Dialog", Font.BOLD, 30));
         // Align the label text horizontally to the center within its container
@@ -41,7 +39,6 @@ public class GameGUI extends JFrame {
         // add the label component
         this.add(title);
     }
-
     private void addBoard() {
         int cellsNum = 9;
         int rowCells = 3;
@@ -62,7 +59,7 @@ public class GameGUI extends JFrame {
             // Set position and size (x, y, width, height)
             button.setBounds(xAxis, yAxis, cellWidth, cellHeight);
             // Make future X/O look big
-            button.setFont(new Font("Dialog", Font.BOLD, 32));
+            button.setFont(new Font("Dialog", Font.BOLD, 80));
             // Remove focus border
             button.setFocusPainted(false);
             // make the background transparent
@@ -71,12 +68,12 @@ public class GameGUI extends JFrame {
             button.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Black border
             // add the button component to the GUI window
             this.add(button);
+            GameLogic.addCell(button);
             xAxis = xAxis + cellWidth;
             i++;
             j++;
         }
     }
-
     private void addHint(String hint) {
         JLabel hintMessage = new JLabel(hint);
         hintMessage.setFont(new Font("Dialog", Font.BOLD, 30));
@@ -84,7 +81,6 @@ public class GameGUI extends JFrame {
         hintMessage.setBounds(0, 495, 495, 39);
         this.add(hintMessage);
     }
-
     private void addResetBtn() {
         JButton resetButton = new JButton("Reset Game");
         resetButton.setFont(new Font("Dialog", Font.BOLD, 18));
