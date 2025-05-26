@@ -5,7 +5,7 @@ public class App {
         GameGUI XO_GUI = new GameGUI();
         // show the GUI to the user by making the window visible
         XO_GUI.setVisible(true);
-        // Start the game logic to make the game interactive
+        // Start the logic of the game to make it interactive
         GameLogic.start();
     }
 }
