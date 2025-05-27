@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameGUI extends JFrame {
+    private JLabel hintMessage;
+
     public GameGUI() {
         // inherit the title field.
         super("X/O Game");
@@ -21,12 +23,14 @@ public class GameGUI extends JFrame {
         // add the components to the GUI window
         this.addComponents();
     }
+
     private void addComponents() {
         this.addLabel();
         this.addBoard();
-        this.addHint("X's turn");
+        this.addHint();
         this.addResetBtn();
     }
+
     private void addLabel() {
         // Create a JLabel component to display the "Tic-Tac-Toa" title on the window
         JLabel title = new JLabel("X / O");
@@ -39,6 +43,7 @@ public class GameGUI extends JFrame {
         // add the label component
         this.add(title);
     }
+
     private void addBoard() {
         int cellsNum = 9;
         int rowCells = 3;
@@ -74,13 +79,19 @@ public class GameGUI extends JFrame {
             j++;
         }
     }
-    private void addHint(String hint) {
-        JLabel hintMessage = new JLabel(hint);
-        hintMessage.setFont(new Font("Dialog", Font.BOLD, 30));
-        hintMessage.setHorizontalAlignment(SwingConstants.CENTER);
-        hintMessage.setBounds(0, 495, 495, 39);
+
+    private void addHint() {
+        this.hintMessage = new JLabel("X's turn");
+        this.hintMessage.setFont(new Font("Dialog", Font.BOLD, 30));
+        this.hintMessage.setHorizontalAlignment(SwingConstants.CENTER);
+        this.hintMessage.setBounds(0, 495, 495, 39);
         this.add(hintMessage);
     }
+
+    public void updateHint(String newHint) {
+        this.hintMessage.setText(newHint);
+    }
+
     private void addResetBtn() {
         JButton resetButton = new JButton("Reset Game");
         resetButton.setFont(new Font("Dialog", Font.BOLD, 18));
