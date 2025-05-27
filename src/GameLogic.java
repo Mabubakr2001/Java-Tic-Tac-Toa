@@ -19,7 +19,7 @@ public final class GameLogic {
     // Prevent anyone from instantiating this class
     private GameLogic() {}
 
-    public static void inject(GameGUI gui) {
+    public static void injectGUI(GameGUI gui) {
         // this will inject the GameGUI instance that the GameLogic can manipulate it
         guiRef = gui;
     }
