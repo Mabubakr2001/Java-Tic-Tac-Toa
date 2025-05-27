@@ -13,12 +13,14 @@ public final class GameLogic {
     /* use a final container (box) and store the mutable current player inside it, to give it to lambda.
     Because lambda expects a final attribute (variable) or an effectively final attribute (variable) */
     private static final AtomicReference<GamePlayer> currentPlayerContainer = new AtomicReference<>(playerX);
+    // keep a reference for the view, to make the GUI updates itself when the user applying the logic
     private static GameGUI guiRef;
 
     // Prevent anyone from instantiating this class
     private GameLogic() {}
 
-    public static void init(GameGUI gui) {
+    public static void inject(GameGUI gui) {
+        // this will inject the GameGUI instance that the GameLogic can manipulate it
         guiRef = gui;
     }
 
