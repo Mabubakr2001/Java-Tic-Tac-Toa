@@ -5,8 +5,8 @@ public class App {
         GameGUI XO_GUI = new GameGUI();
         // show the GUI to the user by making the window visible
         XO_GUI.setVisible(true);
-        // Pass the view (GUI) to the controller (logic)
-        GameLogic.injectGUI(XO_GUI);
+        // Pass the View (GUI) to the Model (logic)
+        GameLogic.initialize(XO_GUI);
         // Start the logic of the game to make it interactive
         GameLogic.start();
     }

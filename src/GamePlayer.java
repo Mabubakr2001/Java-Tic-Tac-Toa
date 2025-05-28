@@ -18,9 +18,10 @@ package src;
 //}
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 // create a record that will have a playerSign private final field
-public record GamePlayer(char playerSign) implements Player {
+public record GamePlayer(char playerSign, ArrayList<Integer> moves) implements Player {
     @Override
     public void makeMove(JButton chosenCell) {
         chosenCell.setText(String.valueOf(this.playerSign));
